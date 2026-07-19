@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - lightweight-social-icons-reloaded/lightweight-social-icons-reloaded.php
+      - lightweight-social-icons-reloaded.php
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
       - name: Read plugin version
         id: version
         run: |
-          VERSION=$(grep -m1 '^Version:' lightweight-social-icons-reloaded/lightweight-social-icons-reloaded.php | sed -E 's/.*Version:\s*//')
+          VERSION=$(grep -m1 '^Version:' lightweight-social-icons-reloaded.php | sed -E 's/.*Version:\s*//')
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
 
@@ -41,8 +41,11 @@ jobs:
           STAGING="/tmp/$SLUG"
           rm -rf "$STAGING"
           mkdir -p "$STAGING"
-          cd lightweight-social-icons-reloaded
           git -c core.quotepath=off ls-files \
+            | grep -v '^\.github/' \
+            | grep -v '^\.gitignore$' \
+            | grep -v '^asset/' \
+            | grep -v '^README\.it\.md$' \
             | rsync -a --files-from=- . "$STAGING/"
           cd /tmp
           zip -r -q "$SLUG-${{ steps.version.outputs.version }}.zip" "$SLUG"

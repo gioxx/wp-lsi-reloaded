@@ -32,4 +32,3 @@ jobs:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SLUG: lightweight-social-icons-reloaded
         VERSION: ${{ inputs.tag }}
-        BUILD_DIR: lightweight-social-icons-reloaded

@@ -1,0 +1,7 @@
+.distignore
+.gitignore
+/.git
+/.github
+asset
+CHANGELOG.md
+README.md
