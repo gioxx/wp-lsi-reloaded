@@ -18,8 +18,15 @@ Install and activate this plugin, then deactivate the original. Your widget inst
 
 Open an Issue. The `asset/` folder contains the full Fontello configuration (`config.json`) — import it at [fontello.com](https://fontello.com) to see the current icon selection, add more, and export a new webfont.
 
+## License
+
+This plugin is licensed under the [GPLv2 or later](LICENSE).
+
+It bundles third-party assets under their own licenses:
+
+- **Icon font** (`fonts/`, generated with [Fontello](https://fontello.com)): [Font Awesome](https://fontawesome.com) glyphs, Font License SIL OFL 1.1, Code License MIT. Discord, WhatsApp, TikTok, Threads and Bluesky glyphs from [Simple Icons](https://simpleicons.org) (CC0). All brand icons are trademarks of their respective owners.
+- **Tooltips** (`js/jquery.tooltipster.min.js`): [Tooltipster](https://iamceege.github.io/tooltipster/), MIT License.
+
 ---
 
 **Original plugin credits**: Thomas Usborne, [GeneratePress](https://generatepress.com)
-**Icon font tool**: [fontello.com](https://fontello.com)
-**New brand icons (Discord, WhatsApp, TikTok, Threads, Bluesky)**: [Simple Icons](https://simpleicons.org) (CC0)
