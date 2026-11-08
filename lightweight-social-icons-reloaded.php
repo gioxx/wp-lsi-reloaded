@@ -3,7 +3,7 @@
 Plugin Name: Lightweight Social Icons Reloaded
 Plugin URI: https://github.com/gioxx/wp-lsi-reloaded
 Description: Add simple icon font social media buttons. Choose the order, colors, size and more for a wide range of icons. Independent fork of Lightweight Social Icons.
-Version: 1.0.0
+Version: 1.0.1
 Requires at least: 6.0
 Requires PHP: 7.4
 Author: Gioxx
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LSIR_VERSION', '1.0.0' );
+define( 'LSIR_VERSION', '1.0.1' );
 
 add_action( 'admin_notices', 'lsir_original_plugin_notice' );
 /**

@@ -4,7 +4,7 @@ Tags: social icons, social media, social networking, social profiles, social ico
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,6 +150,10 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed icons stacking vertically instead of in a single row: the 1.0.0 stylesheet had lost the widget layout and tooltip rules when the icon font was regenerated.
+* Restored the original icon box size (1.2em), so icons look exactly as in the original plugin.
+
 = 1.0.0 =
 * Independent fork of Lightweight Social Icons 1.1.2, renamed to Lightweight Social Icons Reloaded.
 * Fixed the 500px and Snapchat icons, which never rendered due to a mismatched CSS class name.
@@ -159,6 +163,9 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 * Added missing `ABSPATH` guard, `Requires at least`/`Requires PHP` headers, and fixed several unescaped output strings ahead of WordPress.org submission.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Fixes icons displaying vertically instead of in a row. Recommended for everyone on 1.0.0.
 
 = 1.0.0 =
 First release of the independent fork. Deactivate the original Lightweight Social Icons plugin after installing this one; your settings carry over automatically.

@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.1] - 2026-11-08
+
+### Fixed
+- Icons stacked vertically instead of in a single row. Regenerating the Fontello font for 1.0.0 overwrote `css/style.css` and `css/style-min.css` with Fontello's stock CSS, dropping the widget layout rules (`.lsi-social-icons`, `li`, `li a`) and all Tooltipster styles. Restored them from the original plugin.
+- Restored the original glyph box (`width`/`line-height: 1.2em`, no extra side margins) so icons render with the same size and spacing as the original plugin.
+
 ## [1.0.0] - 2026-07-19
 
 Independent fork of [Lightweight Social Icons](https://wordpress.org/plugins/lightweight-social-icons/) 1.1.2, renamed to Lightweight Social Icons Reloaded.
