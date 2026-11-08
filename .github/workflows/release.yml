@@ -44,6 +44,7 @@ jobs:
           git -c core.quotepath=off ls-files \
             | grep -v '^\.github/' \
             | grep -v '^\.gitignore$' \
+            | grep -v '^\.distignore$' \
             | grep -v '^asset/' \
             | grep -v '^README\.it\.md$' \
             | rsync -a --files-from=- . "$STAGING/"

@@ -24,6 +24,8 @@ All notable changes to this project are documented in this file.
 - `js/scripts.js`, which was never loaded.
 
 ### Fixed
+- Plugin Check: widget wrapper, title and icon list output are now escaped at output (`wp_kses_post`, `esc_html`, `wp_kses` with an icon-only allowlist, filterable via `lsir_icon_allowed_html`); inline CSS values are re-validated before use.
+- Release zip no longer ships the hidden `.distignore` file.
 - "Open links in new window" was ignored the first time it was checked on a widget (the save routine read the old value instead of the submitted one).
 - Field placeholders never updated when choosing an icon (`.attr('value')` on a `<select>` returns undefined).
 - Admin scripts were re-bound on every form render; now printed once and bound with delegated events.

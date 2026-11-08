@@ -77,12 +77,14 @@ class LSIR_Widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance['title'] : '' );
 		$options = lsir_icons();
 		$defaults = lsir_option_defaults();
-		$unique_id = esc_attr( $args['widget_id'] );
+		$unique_id = sanitize_html_class( $args['widget_id'] );
 		$output = '';
 
-		echo $args['before_widget'];
+		echo wp_kses_post( $args['before_widget'] );
 
-		echo ( ! empty( $title ) ) ? $args['before_title'] . $title . $args['after_title'] : '';
+		if ( ! empty( $title ) ) {
+			echo wp_kses_post( $args['before_title'] ) . esc_html( $title ) . wp_kses_post( $args['after_title'] );
+		}
 
 		$new_window = ( isset( $instance['new_window'] ) && '' !== $instance['new_window'] ) ? 'target="_blank"' : $defaults['new_window'];
 		$font_size = ( isset( $instance['font_size'] ) && '' !== $instance['font_size'] ) ? $instance['font_size'] : $defaults['font_size'];
@@ -139,11 +141,19 @@ class LSIR_Widget extends WP_Widget {
 		if ( $output ) {
 			printf(
 				'<ul class="lsi-social-icons icon-set-%1$s" style="text-align: %3$s">%2$s</ul>',
-				$unique_id,
-				apply_filters( 'lsir_icon_output', $output ),
+				esc_attr( $unique_id ),
+				wp_kses( apply_filters( 'lsir_icon_output', $output ), lsir_icon_allowed_html() ),
 				esc_attr( $alignment )
 			);
 		}
+
+		// Values are sanitized on save; re-check here since they end up in a stylesheet.
+		$font_size = absint( $font_size );
+		$border_radius = absint( $border_radius );
+		$background = lsir_sanitize_hex_color( $background ) ? $background : $defaults['background'];
+		$color = lsir_sanitize_hex_color( $color ) ? $color : $defaults['color'];
+		$background_hover = lsir_sanitize_hex_color( $background_hover ) ? $background_hover : $defaults['background_hover'];
+		$color_hover = lsir_sanitize_hex_color( $color_hover ) ? $color_hover : $defaults['color_hover'];
 
 		$css = ".icon-set-{$unique_id} a,
 		.icon-set-{$unique_id} a:visited,
@@ -166,7 +176,7 @@ class LSIR_Widget extends WP_Widget {
 			wp_enqueue_script( 'lsir-tooltipster', plugin_dir_url( __FILE__ ) . 'js/jquery.tooltipster.min.js', array( 'jquery' ), LSIR_VERSION, true );
 		}
 
-		echo $args['after_widget'];
+		echo wp_kses_post( $args['after_widget'] );
 	}
 
 	/**
@@ -615,6 +625,28 @@ function lsir_get_icon_rows( $instance ) {
 	ksort( $rows, SORT_NUMERIC );
 
 	return array_values( $rows );
+}
+
+/**
+* HTML allowed in the icon list markup (also after the lsir_icon_output filter).
+*
+* @since 1.1.0
+*/
+function lsir_icon_allowed_html() {
+	$allowed = array(
+		'li' => array( 'class' => true ),
+		'a'  => array(
+			'class'      => true,
+			'href'       => true,
+			'rel'        => true,
+			'title'      => true,
+			'target'     => true,
+			'aria-label' => true,
+		),
+		'i'  => array( 'class' => true, 'aria-hidden' => true ),
+	);
+
+	return apply_filters( 'lsir_icon_allowed_html', $allowed );
 }
 
 /**
