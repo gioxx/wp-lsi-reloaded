@@ -5,7 +5,7 @@ All notable changes to this project are documented in this file.
 ## [1.1.0] - 2026-11-08
 
 ### Added
-- Icons: Ko-fi, Patreon, Buy Me a Coffee, Substack, Medium, GitLab (glyph already in the font, now offered), Codeberg, Signal, Pixelfed, PeerTube, Lemmy, Apple Podcasts, Kick, Letterboxd, Goodreads, Strava, plus Swarm, Apple Music and Wellfound (from [Simple Icons](https://simpleicons.org/) 16.35.0, CC0).
+- Icons: Amazon (Font Awesome glyph, e.g. for a storefront or wishlist), Ko-fi, Patreon, Buy Me a Coffee, Substack, Medium, GitLab (glyph already in the font, now offered), Codeberg, Signal, Pixelfed, PeerTube, Lemmy, Apple Podcasts, Kick, Letterboxd, Goodreads, Strava, plus Swarm, Apple Music and Wellfound (from [Simple Icons](https://simpleicons.org/) 16.35.0, CC0).
 - Widget form: one-click remove button per icon and drag and drop reordering (jQuery UI Sortable, bundled with WordPress).
 - Widget form works in the Customizer too (scripts were only loaded on the Widgets screen).
 - `lsir_icon_aliases` filter and `lsir_get_icon_rows()` helper.

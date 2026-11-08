@@ -97,6 +97,7 @@
 .lsicon-chrome { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf1a5;&nbsp;'); }
 .lsicon-cc-stripe { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf1f5;&nbsp;'); }
 .lsicon-whatsapp { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf232;&nbsp;'); }
+.lsicon-amazon { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf270;&nbsp;'); }
 .lsicon-edge { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf282;&nbsp;'); }
 .lsicon-gitlab { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf296;&nbsp;'); }
 .lsicon-opera { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf2ac;&nbsp;'); }

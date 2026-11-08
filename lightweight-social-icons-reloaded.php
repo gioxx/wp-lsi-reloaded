@@ -647,6 +647,7 @@ function lsir_sanitize_icon_value( $icon, $value ) {
 function lsir_icons( $options = '' ) {
 	$options = array(
 		'fivehundredpx' => array( 'id' => 'fivehundredpx', 'name' => __( '500px', 'lightweight-social-icons-reloaded' ) ),
+		'amazon'        => array( 'id' => 'amazon', 'name' => __( 'Amazon', 'lightweight-social-icons-reloaded' ) ),
 		'applemusic'    => array( 'id' => 'applemusic', 'name' => __( 'Apple Music', 'lightweight-social-icons-reloaded' ) ),
 		'applepodcasts' => array( 'id' => 'applepodcasts', 'name' => __( 'Apple Podcasts', 'lightweight-social-icons-reloaded' ) ),
 		'bandcamp'      => array( 'id' => 'bandcamp', 'name' => __( 'Bandcamp', 'lightweight-social-icons-reloaded' ) ),

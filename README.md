@@ -6,7 +6,7 @@ What changed from the original 1.1.2:
 
 - Fixed the 500px and Snapchat icons, which never rendered due to a mismatched CSS class name.
 - Removed long-dead services: Delicious, Vine, StumbleUpon, Yahoo, Skype, Digg, Bloglovin'.
-- Added icons for services people actually use today: Bluesky, Threads, Discord, WhatsApp, TikTok, Signal, Ko-fi, Patreon, Buy Me a Coffee, Substack, Medium, GitLab, Codeberg, Pixelfed, PeerTube, Lemmy, Apple Podcasts, Kick, Letterboxd, Goodreads, Strava.
+- Added icons for services people actually use today: Bluesky, Threads, Discord, WhatsApp, TikTok, Signal, Amazon, Ko-fi, Patreon, Buy Me a Coffee, Substack, Medium, GitLab, Codeberg, Pixelfed, PeerTube, Lemmy, Apple Podcasts, Kick, Letterboxd, Goodreads, Strava.
 - Outdated brands switch automatically: Twitter shows as X, Foursquare as Swarm, iTunes as Apple Music, AngelList as Wellfound.
 - Widget form: remove an icon with one click, reorder by drag and drop, no empty slots left behind; works in the Customizer too.
 - Brought the plugin up to current WordPress.org Plugin Check standards (missing `ABSPATH` guard, missing `Requires at least`/`Requires PHP` headers, several unescaped output strings).

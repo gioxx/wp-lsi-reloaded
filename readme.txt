@@ -37,6 +37,7 @@ If you're migrating from the original Lightweight Social Icons plugin, simply de
 = Included icons: =
 
 * 500px
+* Amazon
 * Apple Music
 * Apple Podcasts
 * Bandcamp
@@ -164,7 +165,7 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 == Changelog ==
 
 = 1.1.0 =
-* New icons: Ko-fi, Patreon, Buy Me a Coffee, Substack, Medium, GitLab, Codeberg, Signal, Pixelfed, PeerTube, Lemmy, Apple Podcasts, Kick, Letterboxd, Goodreads, Strava.
+* New icons: Amazon, Ko-fi, Patreon, Buy Me a Coffee, Substack, Medium, GitLab, Codeberg, Signal, Pixelfed, PeerTube, Lemmy, Apple Podcasts, Kick, Letterboxd, Goodreads, Strava.
 * Updated icons: Twitter now shows as X, Foursquare as Swarm, iTunes as Apple Music, AngelList as Wellfound. Existing widgets switch automatically, no need to edit them.
 * Removed defunct services: Skype (closed in 2025), Digg (no longer has user profiles) and Bloglovin'.
 * Widget form: remove an icon with one click, reorder icons by drag and drop, and saving now compacts the list so removed icons leave no empty slots.
