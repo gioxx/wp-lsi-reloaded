@@ -306,6 +306,17 @@ class LSIR_Widget extends WP_Widget {
 		<p>
 			<button type="button" class="button add-lsi-row"><?php esc_html_e( 'Add Icon', 'lightweight-social-icons-reloaded' ); ?></button>
 		</p>
+		<p class="description" style="margin-top:12px;font-size:11px;">
+			<?php
+			printf(
+				/* translators: 1: plugin name, 2: link to the author's site, 3: link to the author's plugin gallery */
+				esc_html__( '%1$s by %2$s · %3$s', 'lightweight-social-icons-reloaded' ),
+				'Lightweight Social Icons Reloaded',
+				'<a href="https://gioxx.org" target="_blank" rel="noopener noreferrer">Gioxx</a>',
+				'<a href="https://wordpress.gioxx.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins', 'lightweight-social-icons-reloaded' ) . '</a>'
+			);
+			?>
+		</p>
 		<?php
 	}
 
@@ -764,3 +775,24 @@ function lsir_sanitize_hex_color( $color ) {
 
 	return null;
 }
+
+/**
+ * Links under the plugin description on the Plugins screen: the GitHub
+ * repository (unless the row already links to it) and the author's gallery.
+ *
+ * @param string[] $links Row meta links.
+ * @param string   $file  Plugin basename of the row.
+ * @return string[]
+ */
+function lsir_plugin_row_meta( $links, $file ) {
+	if ( plugin_basename( __FILE__ ) !== $file ) {
+		return $links;
+	}
+	if ( false === strpos( implode( ' ', (array) $links ), 'https://github.com/gioxx/wp-lsi-reloaded' ) ) {
+		$links[] = '<a href="https://github.com/gioxx/wp-lsi-reloaded" target="_blank" rel="noopener noreferrer">' . esc_html__( 'View on GitHub', 'lightweight-social-icons-reloaded' ) . '</a>';
+	}
+	$links[] = '<a href="https://wordpress.gioxx.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins by Gioxx', 'lightweight-social-icons-reloaded' ) . '</a>';
+
+	return $links;
+}
+add_filter( 'plugin_row_meta', 'lsir_plugin_row_meta', 10, 2 );
