@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## [Unreleased]
+
+### Added
+- Widget form: a small "Lightweight Social Icons Reloaded by Gioxx · More plugins" line at the bottom, linking to the author's plugin gallery at wordpress.gioxx.org.
+- Plugins screen: "View on GitHub" (when the row does not already link to the repository) and "More plugins by Gioxx" links under the plugin description.
+
 ## [1.1.0] - 2026-11-08
 
 ### Added
