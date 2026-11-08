@@ -1,58 +1,3 @@
-@font-face {
-  font-family: 'fontello';
-  src: url('../font/fontello.eot?81199867');
-  src: url('../font/fontello.eot?81199867#iefix') format('embedded-opentype'),
-       url('../font/fontello.woff2?81199867') format('woff2'),
-       url('../font/fontello.woff?81199867') format('woff'),
-       url('../font/fontello.ttf?81199867') format('truetype'),
-       url('../font/fontello.svg?81199867#fontello') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'fontello';
-    src: url('../font/fontello.svg?81199867#fontello') format('svg');
-  }
-}
-*/
-[class^="lsicon-"]:before, [class*=" lsicon-"]:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: never;
-
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  /* opacity: .8; */
-
-  /* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  text-transform: none;
-
-  /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
-
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  margin-left: .2em;
-
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
-
-  /* Font smoothing. That was taken from TWBS */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
 
 .lsicon-mastodon:before { content: '\e800'; } /* '' */
 .lsicon-email:before { content: '\e801'; } /* '' */
@@ -62,15 +7,12 @@
 .lsicon-phone:before { content: '\e805'; } /* '' */
 .lsicon-phone-squared:before { content: '\e806'; } /* '' */
 .lsicon-codepen:before { content: '\e807'; } /* '' */
-.lsicon-delicious:before { content: '\e808'; } /* '' */
 .lsicon-deviantart:before { content: '\e809'; } /* '' */
-.lsicon-digg:before { content: '\e80a'; } /* '' */
 .lsicon-dribbble:before { content: '\e80b'; } /* '' */
 .lsicon-dropbox:before { content: '\e80c'; } /* '' */
 .lsicon-facebook:before { content: '\e80d'; } /* '' */
 .lsicon-facebook-squared:before { content: '\e80e'; } /* '' */
 .lsicon-flickr:before { content: '\e80f'; } /* '' */
-.lsicon-foursquare:before { content: '\e810'; } /* '' */
 .lsicon-git-squared:before { content: '\e811'; } /* '' */
 .lsicon-git:before { content: '\e812'; } /* '' */
 .lsicon-github:before { content: '\e813'; } /* '' */
@@ -87,40 +29,30 @@
 .lsicon-pinterest:before { content: '\e81e'; } /* '' */
 .lsicon-reddit:before { content: '\e81f'; } /* '' */
 .lsicon-reddit-squared:before { content: '\e820'; } /* '' */
-.lsicon-skype:before { content: '\e821'; } /* '' */
 .lsicon-soundcloud:before { content: '\e822'; } /* '' */
 .lsicon-spotify:before { content: '\e823'; } /* '' */
 .lsicon-stackexchange:before { content: '\e824'; } /* '' */
 .lsicon-stackoverflow:before { content: '\e825'; } /* '' */
-.lsicon-stumbleupon:before { content: '\e826'; } /* '' */
-.lsicon-stumbleupon-circled:before { content: '\e827'; } /* '' */
 .lsicon-tumblr-squared:before { content: '\e828'; } /* '' */
 .lsicon-tumblr:before { content: '\e829'; } /* '' */
-.lsicon-twitter-squared:before { content: '\e82a'; } /* '' */
-.lsicon-twitter:before { content: '\e82b'; } /* '' */
 .lsicon-vimeo:before { content: '\e82c'; } /* '' */
-.lsicon-vine:before { content: '\e82d'; } /* '' */
 .lsicon-wordpress:before { content: '\e82e'; } /* '' */
 .lsicon-youtube:before { content: '\e82f'; } /* '' */
 .lsicon-youtube-squared:before { content: '\e830'; } /* '' */
-.lsicon-itunes:before { content: '\e831'; } /* '' */
 .lsicon-steam:before { content: '\e832'; } /* '' */
 .lsicon-steam-squared:before { content: '\e833'; } /* '' */
 .lsicon-behance:before { content: '\e834'; } /* '' */
 .lsicon-behance-squared:before { content: '\e835'; } /* '' */
 .lsicon-yelp:before { content: '\e836'; } /* '' */
 .lsicon-twitch:before { content: '\e837'; } /* '' */
-.lsicon-500px:before { content: '\e838'; } /* '' */
-.lsicon-angellist:before { content: '\e839'; } /* '' */
+.lsicon-fivehundredpx:before { content: '\e838'; } /* '' */
 .lsicon-tiktok:before { content: '\e83a'; } /* '' */
-.lsicon-bloglovin:before { content: '\e83b'; } /* '' */
 .lsicon-paper-plane:before { content: '\e83c'; } /* '' */
 .lsicon-vkontakte:before { content: '\e83d'; } /* '' */
 .lsicon-bitbucket:before { content: '\e83e'; } /* '' */
 .lsicon-bandcamp:before { content: '\e83f'; } /* '' */
 .lsicon-xing:before { content: '\e840'; } /* '' */
-.lsicon-yahoo:before { content: '\e841'; } /* '' */
-.lsicon-snapchat-ghost:before { content: '\e842'; } /* '' */
+.lsicon-snapchat:before { content: '\e842'; } /* '' */
 .lsicon-snapchat-square:before { content: '\e843'; } /* '' */
 .lsicon-tripadvisor:before { content: '\e844'; } /* '' */
 .lsicon-houzz:before { content: '\e845'; } /* '' */
@@ -129,6 +61,24 @@
 .lsicon-lastfm-squared:before { content: '\e848'; } /* '' */
 .lsicon-threads:before { content: '\e849'; } /* '' */
 .lsicon-bluesky:before { content: '\e84a'; } /* '' */
+.lsicon-kofi:before { content: '\e84b'; } /* '' */
+.lsicon-patreon:before { content: '\e84c'; } /* '' */
+.lsicon-buymeacoffee:before { content: '\e84d'; } /* '' */
+.lsicon-substack:before { content: '\e84e'; } /* '' */
+.lsicon-medium:before { content: '\e84f'; } /* '' */
+.lsicon-codeberg:before { content: '\e850'; } /* '' */
+.lsicon-signal:before { content: '\e851'; } /* '' */
+.lsicon-pixelfed:before { content: '\e852'; } /* '' */
+.lsicon-peertube:before { content: '\e853'; } /* '' */
+.lsicon-lemmy:before { content: '\e854'; } /* '' */
+.lsicon-applepodcasts:before { content: '\e855'; } /* '' */
+.lsicon-kick:before { content: '\e856'; } /* '' */
+.lsicon-letterboxd:before { content: '\e857'; } /* '' */
+.lsicon-goodreads:before { content: '\e858'; } /* '' */
+.lsicon-strava:before { content: '\e859'; } /* '' */
+.lsicon-applemusic:before { content: '\e85a'; } /* '' */
+.lsicon-swarm:before { content: '\e85b'; } /* '' */
+.lsicon-wellfound:before { content: '\e85c'; } /* '' */
 .lsicon-email-alt:before { content: '\f0e0'; } /* '' */
 .lsicon-firefox:before { content: '\f168'; } /* '' */
 .lsicon-bitbucket-squared:before { content: '\f172'; } /* '' */

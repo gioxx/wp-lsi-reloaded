@@ -2,6 +2,32 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.0] - 2026-11-08
+
+### Added
+- Icons: Ko-fi, Patreon, Buy Me a Coffee, Substack, Medium, GitLab (glyph already in the font, now offered), Codeberg, Signal, Pixelfed, PeerTube, Lemmy, Apple Podcasts, Kick, Letterboxd, Goodreads, Strava, plus Swarm, Apple Music and Wellfound (from [Simple Icons](https://simpleicons.org/) 16.35.0, CC0).
+- Widget form: one-click remove button per icon and drag and drop reordering (jQuery UI Sortable, bundled with WordPress).
+- Widget form works in the Customizer too (scripts were only loaded on the Widgets screen).
+- `lsir_icon_aliases` filter and `lsir_get_icon_rows()` helper.
+- `asset/build-css.py`: builds `css/style.css`, `css/style-min.css` and `fonts/` from `asset/plugin.css` and the Fontello export, and fails if any plugin icon has no glyph. This prevents a repeat of the 1.0.0 regression.
+
+### Changed
+- Legacy ids now render as their current brand: `twitter` as X, `foursquare` as Swarm, `itunes` as Apple Music, `angellist` as Wellfound. Stored widgets switch automatically and are saved under the new id on the next save.
+- Saving the widget compacts the icon list: rows without a URL are dropped and the rest are renumbered in order, so removed icons no longer leave empty slots.
+- Icon rows are read from the stored data rather than assumed from the number of available icons, so instances saved by older versions or the original plugin are always read in full.
+- Glyph CSS classes for 500px and Snapchat now match the plugin ids directly (`lsicon-fivehundredpx`, `lsicon-snapchat`), no aliases needed.
+- Stored URLs are saved with `esc_url_raw()` (escaped on output) instead of `esc_url()`.
+
+### Removed
+- Skype (service closed in May 2025), Digg (relaunched as an AI news aggregator without user profiles) and Bloglovin' (offline, "coming soon" placeholder). Rows using them are skipped on the front end and dropped on the next save.
+- Unused glyphs from the font (Delicious, Vine, StumbleUpon, Yahoo, Skype, Digg, Foursquare, iTunes, AngelList, Twitter, Bloglovin').
+- `js/scripts.js`, which was never loaded.
+
+### Fixed
+- "Open links in new window" was ignored the first time it was checked on a widget (the save routine read the old value instead of the submitted one).
+- Field placeholders never updated when choosing an icon (`.attr('value')` on a `<select>` returns undefined).
+- Admin scripts were re-bound on every form render; now printed once and bound with delegated events.
+
 ## [1.0.1] - 2026-11-08
 
 ### Fixed
