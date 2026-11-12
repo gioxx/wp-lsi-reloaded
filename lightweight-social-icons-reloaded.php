@@ -313,7 +313,7 @@ class LSIR_Widget extends WP_Widget {
 				esc_html__( '%1$s by %2$s · %3$s', 'lightweight-social-icons-reloaded' ),
 				'Lightweight Social Icons Reloaded',
 				'<a href="https://gioxx.org" target="_blank" rel="noopener noreferrer">Gioxx</a>',
-				'<a href="https://wordpress.gioxx.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins', 'lightweight-social-icons-reloaded' ) . '</a>'
+				'<a href="https://wordpress.gxware.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins', 'lightweight-social-icons-reloaded' ) . '</a>'
 			);
 			?>
 		</p>
@@ -791,7 +791,7 @@ function lsir_plugin_row_meta( $links, $file ) {
 	if ( false === strpos( implode( ' ', (array) $links ), 'https://github.com/gioxx/wp-lsi-reloaded' ) ) {
 		$links[] = '<a href="https://github.com/gioxx/wp-lsi-reloaded" target="_blank" rel="noopener noreferrer">' . esc_html__( 'View on GitHub', 'lightweight-social-icons-reloaded' ) . '</a>';
 	}
-	$links[] = '<a href="https://wordpress.gioxx.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins by Gioxx', 'lightweight-social-icons-reloaded' ) . '</a>';
+	$links[] = '<a href="https://wordpress.gxware.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins by Gioxx', 'lightweight-social-icons-reloaded' ) . '</a>';
 
 	return $links;
 }
