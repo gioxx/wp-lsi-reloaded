@@ -1,4 +1,4 @@
-# Lightweight Social Icons Reloaded
+# Reloaded Social Icons
 
 Independent fork of [Lightweight Social Icons](https://wordpress.org/plugins/lightweight-social-icons/) by Thomas Usborne / GeneratePress, which had seen no development in years. Reloaded is a clean restart: same widget, rebuilt and modernized.
 

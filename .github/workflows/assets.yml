@@ -1,0 +1,56 @@
+name: Update WordPress.org assets and readme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.wordpress-org/**'
+      - 'readme.txt'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+# Both deploy.yml and assets.yml commit to the same SVN repository: serialize them.
+concurrency:
+  group: wporg-svn
+  cancel-in-progress: false
+
+jobs:
+  update_assets:
+    name: Push assets and readme to WP.org
+    runs-on: ubuntu-latest
+    # deploy.yml skips everything (assets included) when the version is already
+    # tagged in SVN, so banner/icon/screenshot/readme-only changes between
+    # releases go through here.
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      # A release commit changes readme.txt (Stable tag) together with the code.
+      # If this workflow pushed that readme before deploy.yml has created the
+      # matching SVN tag, WordPress.org would advertise a version that does not
+      # exist yet (and keep doing so if the release or deploy fails). So only
+      # publish when the readme's Stable tag is already tagged in SVN; otherwise
+      # deploy.yml ships the readme and the assets together with the code.
+      - name: Check that the Stable tag already exists in SVN
+        id: guard
+        run: |
+          STABLE=$(grep -m1 -i '^Stable tag:' readme.txt | sed -E 's/^[Ss]table tag:\s*//' | tr -d '[:space:]')
+          URL="https://plugins.svn.wordpress.org/reloaded-social-icons/tags/$STABLE/readme.txt"
+          if curl -sfI -o /dev/null "$URL"; then
+            echo "Stable tag $STABLE found in SVN, publishing assets and readme."
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Stable tag $STABLE is not in SVN yet: skipping, deploy.yml will publish readme and assets with the release."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: WordPress.org plugin asset/readme update
+        if: steps.guard.outputs.publish == 'true'
+        uses: 10up/action-wordpress-plugin-asset-update@2.2.0
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: reloaded-social-icons
+          IGNORE_OTHER_FILES: true
