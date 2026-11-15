@@ -1,0 +1,35 @@
+name: Update WordPress.org assets and readme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.wordpress-org/**'
+      - 'readme.txt'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+# Both deploy.yml and assets.yml commit to the same SVN repository: serialize them.
+concurrency:
+  group: wporg-svn
+  cancel-in-progress: false
+
+jobs:
+  update_assets:
+    name: Push assets and readme to WP.org
+    runs-on: ubuntu-latest
+    # deploy.yml skips everything (assets included) when the version is already
+    # tagged in SVN, so banner/icon/screenshot/readme-only changes go through here.
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: WordPress.org plugin asset/readme update
+        uses: 10up/action-wordpress-plugin-asset-update@2.2.0
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: reloaded-social-icons
+          IGNORE_OTHER_FILES: true

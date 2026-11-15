@@ -2,11 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
-## [Unreleased]
+## [1.1.1] - 2026-11-15
 
 ### Added
-- Widget form: a small "Lightweight Social Icons Reloaded by Gioxx · More plugins" line at the bottom, linking to the author's plugin gallery at wordpress.gioxx.org.
+- Widget form: a small "Reloaded Social Icons by Gioxx · More plugins" line at the bottom, linking to the author's plugin gallery at wordpress.gxware.org.
 - Plugins screen: "View on GitHub" (when the row does not already link to the repository) and "More plugins by Gioxx" links under the plugin description.
+- WordPress.org directory assets (banner, icon, screenshots) and automatic deploy to the official plugin directory, where the plugin is now listed as [Reloaded Social Icons](https://wordpress.org/plugins/reloaded-social-icons/).
+
+### Changed
+- Renamed to Reloaded Social Icons, the name approved for the WordPress.org directory. The text domain is now `reloaded-social-icons`, matching the directory slug. The plugin folder and main file name are unchanged, so existing installs update in place.
 
 ## [1.1.0] - 2026-11-08
 

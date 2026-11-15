@@ -1,10 +1,10 @@
-=== Lightweight Social Icons Reloaded ===
+=== Reloaded Social Icons ===
 Contributors: gioxx
 Tags: social icons, social media, social networking, social profiles, social icon widget
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Add simple, customizable social icon buttons to your widget areas. Independent f
 
 == Description ==
 
-Lightweight Social Icons Reloaded is an easy to use, lightweight social icon widget which lets you display your favorite social profile icons.
+Reloaded Social Icons is an easy to use, lightweight social icon widget which lets you display your favorite social profile icons.
 
 The icons use an icon font, meaning you can choose the size, border radius (roundness), color and hover color of your icons.
 
@@ -104,12 +104,12 @@ If you're migrating from the original Lightweight Social Icons plugin, simply de
 
 == Installation ==
 
-1. Go to "Plugins > Add New" in your Dashboard and search for: Lightweight Social Icons Reloaded
+1. Go to "Plugins > Add New" in your Dashboard and search for: Reloaded Social Icons
 2. Or download the .zip from WordPress.org / GitHub, and upload the folder to the `/wp-content/plugins/` directory via FTP.
 
 = Migrating from the original Lightweight Social Icons =
 
-1. Install and activate Lightweight Social Icons Reloaded.
+1. Install and activate Reloaded Social Icons.
 2. Deactivate the original Lightweight Social Icons plugin.
 3. That's it. Your widget instance, colors, and configured icons are inherited automatically (both plugins share the same widget storage key).
 
@@ -117,13 +117,13 @@ If you're migrating from the original Lightweight Social Icons plugin, simply de
 
 = How do I add a widget with my icons? =
 
-* Make sure Lightweight Social Icons Reloaded is activated.
-* Navigate to "Appearance > Widgets" and look for the "Lightweight Social Icons Reloaded" widget.
+* Make sure Reloaded Social Icons is activated.
+* Navigate to "Appearance > Widgets" and look for the "Reloaded Social Icons" widget.
 * Drag the widget into your desired widget area.
 
 Once the widget is added to a widget area, you can expand it and fill in your profiles.
 
-= What options does Lightweight Social Icons Reloaded have? =
+= What options does Reloaded Social Icons have? =
 
 * Choose your own order (drag and drop)
 * Title (optional): Choose a title for your widget.
@@ -158,11 +158,16 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 
 == Screenshots ==
 
-1. Set your options and choose which social profiles you want to show off.
-2. All of the icons in a widget with tooltips enabled.
-3. Icons with a different color.
+1. Widget settings: icon size, border radius, colors and hover colors, tooltips, alignment, and your profiles in drag and drop order.
+2. Every available icon in a single widget, with tooltips enabled.
+3. Round icons with custom colors; the highlighted icon shows the hover colors.
 
 == Changelog ==
+
+= 1.1.1 =
+* Renamed to Reloaded Social Icons, the name used in the WordPress.org plugin directory. Widgets and settings are untouched.
+* Widget form: a small credit line with a link to more plugins by the author.
+* Plugins screen: "View on GitHub" and "More plugins by Gioxx" links.
 
 = 1.1.0 =
 * New icons: Amazon, Ko-fi, Patreon, Buy Me a Coffee, Substack, Medium, GitLab, Codeberg, Signal, Pixelfed, PeerTube, Lemmy, Apple Podcasts, Kick, Letterboxd, Goodreads, Strava.
@@ -186,6 +191,9 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 * Added missing `ABSPATH` guard, `Requires at least`/`Requires PHP` headers, and fixed several unescaped output strings ahead of WordPress.org submission.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+The plugin is now called Reloaded Social Icons, as listed on WordPress.org. Nothing changes in your widgets.
 
 = 1.1.0 =
 New icons, one-click removal and drag and drop reordering. Twitter, Foursquare, iTunes and AngelList switch to their current icons automatically; Skype, Digg and Bloglovin' icons are removed.

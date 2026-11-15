@@ -1,16 +1,16 @@
 <?php
 /*
-Plugin Name: Lightweight Social Icons Reloaded
+Plugin Name: Reloaded Social Icons
 Plugin URI: https://github.com/gioxx/wp-lsi-reloaded
 Description: Add simple icon font social media buttons. Choose the order, colors, size and more for a wide range of icons. Independent fork of Lightweight Social Icons.
-Version: 1.1.0
+Version: 1.1.1
 Requires at least: 6.0
 Requires PHP: 7.4
 Author: Gioxx
 Author URI: https://gioxx.org
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: lightweight-social-icons-reloaded
+Text Domain: reloaded-social-icons
 
 GitHub Plugin URI: gioxx/wp-lsi-reloaded
 GitHub Branch: main
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LSIR_VERSION', '1.1.0' );
+define( 'LSIR_VERSION', '1.1.1' );
 
 add_action( 'admin_notices', 'lsir_original_plugin_notice' );
 /**
@@ -38,7 +38,7 @@ function lsir_original_plugin_notice() {
 
 	if ( is_plugin_active( 'lightweight-social-icons/lightweight-social-icons.php' ) ) {
 		echo '<div class="notice notice-warning"><p>' . wp_kses(
-			__( '<strong>Lightweight Social Icons Reloaded</strong> detected that the original <strong>Lightweight Social Icons</strong> plugin is still active. Please deactivate it to avoid conflicts: your widget settings will carry over automatically.', 'lightweight-social-icons-reloaded' ),
+			__( '<strong>Reloaded Social Icons</strong> detected that the original <strong>Lightweight Social Icons</strong> plugin is still active. Please deactivate it to avoid conflicts: your widget settings will carry over automatically.', 'reloaded-social-icons' ),
 			array( 'strong' => array() )
 		) . '</p></div>';
 	}
@@ -59,7 +59,7 @@ class LSIR_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'lsi_Widget',
-			esc_html__( 'Lightweight Social Icons Reloaded', 'lightweight-social-icons-reloaded' )
+			esc_html__( 'Reloaded Social Icons', 'reloaded-social-icons' )
 		);
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
@@ -213,7 +213,7 @@ class LSIR_Widget extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'lightweight-social-icons-reloaded' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'reloaded-social-icons' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
@@ -221,7 +221,7 @@ class LSIR_Widget extends WP_Widget {
 			<label>
 				<input class="widefat" style="max-width:65px;" id="<?php echo esc_attr( $this->get_field_id( 'font_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'font_size' ) ); ?>" type="text" value="<?php echo intval( $font_size ); ?>">
 				<span class="pixels" style="display: inline-block;background:#efefef;position:relative;margin-left: -33px;padding: 3px 7px;">px</span>
-				<?php esc_html_e( 'Icon Size', 'lightweight-social-icons-reloaded' ); ?>
+				<?php esc_html_e( 'Icon Size', 'reloaded-social-icons' ); ?>
 			</label>
 		</p>
 
@@ -229,7 +229,7 @@ class LSIR_Widget extends WP_Widget {
 			<label>
 				<input class="widefat" style="max-width:65px;" id="<?php echo esc_attr( $this->get_field_id( 'border_radius' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'border_radius' ) ); ?>" type="text" value="<?php echo intval( $border_radius ); ?>">
 				<span class="pixels" style="display: inline-block;background:#efefef;position:relative;margin-left: -33px;padding: 3px 7px;">px</span>
-				<?php esc_html_e( 'Border Radius', 'lightweight-social-icons-reloaded' ); ?>
+				<?php esc_html_e( 'Border Radius', 'reloaded-social-icons' ); ?>
 			</label>
 		</p>
 
@@ -237,22 +237,22 @@ class LSIR_Widget extends WP_Widget {
 
 		<p>
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo esc_attr( $this->get_field_id( 'background' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'background' ) ); ?>" type="text" value="<?php echo esc_attr( $background ); ?>">
-			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Background Color', 'lightweight-social-icons-reloaded' ); ?></label>
+			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Background Color', 'reloaded-social-icons' ); ?></label>
 		</p>
 
 		<p>
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo esc_attr( $this->get_field_id( 'color' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'color' ) ); ?>" type="text" value="<?php echo esc_attr( $color ); ?>">
-			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Text Color', 'lightweight-social-icons-reloaded' ); ?></label>
+			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Text Color', 'reloaded-social-icons' ); ?></label>
 		</p>
 
 		<p>
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo esc_attr( $this->get_field_id( 'background_hover' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'background_hover' ) ); ?>" type="text" value="<?php echo esc_attr( $background_hover ); ?>">
-			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Background Hover Color', 'lightweight-social-icons-reloaded' ); ?></label>
+			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Background Hover Color', 'reloaded-social-icons' ); ?></label>
 		</p>
 
 		<p>
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo esc_attr( $this->get_field_id( 'color_hover' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'color_hover' ) ); ?>" type="text" value="<?php echo esc_attr( $color_hover ); ?>">
-			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Text Hover Color', 'lightweight-social-icons-reloaded' ); ?></label>
+			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Text Hover Color', 'reloaded-social-icons' ); ?></label>
 		</p>
 
 		<hr />
@@ -260,24 +260,24 @@ class LSIR_Widget extends WP_Widget {
 		<p>
 			<label>
 				<input id="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'new_window' ) ); ?>" value="1" <?php checked( 1, $new_window ); ?>/>
-				<?php esc_html_e( 'Open links in new window?', 'lightweight-social-icons-reloaded' ); ?>
+				<?php esc_html_e( 'Open links in new window?', 'reloaded-social-icons' ); ?>
 			</label>
 		</p>
 
 		<p>
 			<label>
 				<input id="<?php echo esc_attr( $this->get_field_id( 'tooltip' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'tooltip' ) ); ?>" value="1" <?php checked( 1, $tooltip ); ?>/>
-				<?php esc_html_e( 'Enable tooltips?', 'lightweight-social-icons-reloaded' ); ?>
+				<?php esc_html_e( 'Enable tooltips?', 'reloaded-social-icons' ); ?>
 			</label>
 		</p>
 
 		<p>
 			<select name="<?php echo esc_attr( $this->get_field_name( 'alignment' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'alignment' ) ); ?>">
-				<option value="left" <?php selected( $alignment, 'left' ); ?>><?php esc_html_e( 'Left', 'lightweight-social-icons-reloaded' ); ?></option>
-				<option value="center" <?php selected( $alignment, 'center' ); ?>><?php esc_html_e( 'Center', 'lightweight-social-icons-reloaded' ); ?></option>
-				<option value="right" <?php selected( $alignment, 'right' ); ?>><?php esc_html_e( 'Right', 'lightweight-social-icons-reloaded' ); ?></option>
+				<option value="left" <?php selected( $alignment, 'left' ); ?>><?php esc_html_e( 'Left', 'reloaded-social-icons' ); ?></option>
+				<option value="center" <?php selected( $alignment, 'center' ); ?>><?php esc_html_e( 'Center', 'reloaded-social-icons' ); ?></option>
+				<option value="right" <?php selected( $alignment, 'right' ); ?>><?php esc_html_e( 'Right', 'reloaded-social-icons' ); ?></option>
 			</select>
-			<?php esc_html_e( 'Alignment', 'lightweight-social-icons-reloaded' ); ?>
+			<?php esc_html_e( 'Alignment', 'reloaded-social-icons' ); ?>
 		</p>
 
 		<hr />
@@ -290,7 +290,7 @@ class LSIR_Widget extends WP_Widget {
 				$visible = '' !== $row['value'];
 				?>
 				<li class="lsi-container"<?php echo $visible ? '' : ' style="display:none;"'; ?>>
-					<span class="lsir-handle dashicons dashicons-menu" title="<?php esc_attr_e( 'Drag to reorder', 'lightweight-social-icons-reloaded' ); ?>"></span>
+					<span class="lsir-handle dashicons dashicons-menu" title="<?php esc_attr_e( 'Drag to reorder', 'reloaded-social-icons' ); ?>"></span>
 					<select class="choose-icon" name="<?php echo esc_attr( $this->get_field_name( $select ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( $select ) ); ?>">
 						<option value=""></option>
 						<?php foreach ( $options as $option ) { ?>
@@ -298,22 +298,22 @@ class LSIR_Widget extends WP_Widget {
 						<?php } ?>
 					</select>
 					<input class="widefat social-item" id="<?php echo esc_attr( $this->get_field_id( $input ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $input ) ); ?>" type="text" value="<?php echo esc_attr( $row['value'] ); ?>">
-					<button type="button" class="button-link lsir-remove" aria-label="<?php esc_attr_e( 'Remove icon', 'lightweight-social-icons-reloaded' ); ?>" title="<?php esc_attr_e( 'Remove icon', 'lightweight-social-icons-reloaded' ); ?>"><span class="dashicons dashicons-no-alt"></span></button>
+					<button type="button" class="button-link lsir-remove" aria-label="<?php esc_attr_e( 'Remove icon', 'reloaded-social-icons' ); ?>" title="<?php esc_attr_e( 'Remove icon', 'reloaded-social-icons' ); ?>"><span class="dashicons dashicons-no-alt"></span></button>
 				</li>
 			<?php } ?>
 		</ul>
 
 		<p>
-			<button type="button" class="button add-lsi-row"><?php esc_html_e( 'Add Icon', 'lightweight-social-icons-reloaded' ); ?></button>
+			<button type="button" class="button add-lsi-row"><?php esc_html_e( 'Add Icon', 'reloaded-social-icons' ); ?></button>
 		</p>
 		<p class="description" style="margin-top:12px;font-size:11px;">
 			<?php
 			printf(
 				/* translators: 1: plugin name, 2: link to the author's site, 3: link to the author's plugin gallery */
-				esc_html__( '%1$s by %2$s · %3$s', 'lightweight-social-icons-reloaded' ),
-				'Lightweight Social Icons Reloaded',
+				esc_html__( '%1$s by %2$s · %3$s', 'reloaded-social-icons' ),
+				'Reloaded Social Icons',
 				'<a href="https://gioxx.org" target="_blank" rel="noopener noreferrer">Gioxx</a>',
-				'<a href="https://wordpress.gxware.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins', 'lightweight-social-icons-reloaded' ) . '</a>'
+				'<a href="https://wordpress.gxware.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins', 'reloaded-social-icons' ) . '</a>'
 			);
 			?>
 		</p>
@@ -415,8 +415,8 @@ class LSIR_Widget extends WP_Widget {
 		$printed = true;
 
 		$placeholders = array(
-			'phone' => __( '1 (123)-456-7890', 'lightweight-social-icons-reloaded' ),
-			'email' => __( 'you@yourdomain.com or https://', 'lightweight-social-icons-reloaded' ),
+			'phone' => __( '1 (123)-456-7890', 'reloaded-social-icons' ),
+			'email' => __( 'you@yourdomain.com or https://', 'reloaded-social-icons' ),
 			'url'   => 'https://',
 		);
 		?>
@@ -689,71 +689,71 @@ function lsir_sanitize_icon_value( $icon, $value ) {
 */
 function lsir_icons( $options = '' ) {
 	$options = array(
-		'fivehundredpx' => array( 'id' => 'fivehundredpx', 'name' => __( '500px', 'lightweight-social-icons-reloaded' ) ),
-		'amazon'        => array( 'id' => 'amazon', 'name' => __( 'Amazon', 'lightweight-social-icons-reloaded' ) ),
-		'applemusic'    => array( 'id' => 'applemusic', 'name' => __( 'Apple Music', 'lightweight-social-icons-reloaded' ) ),
-		'applepodcasts' => array( 'id' => 'applepodcasts', 'name' => __( 'Apple Podcasts', 'lightweight-social-icons-reloaded' ) ),
-		'bandcamp'      => array( 'id' => 'bandcamp', 'name' => __( 'Bandcamp', 'lightweight-social-icons-reloaded' ) ),
-		'behance'       => array( 'id' => 'behance', 'name' => __( 'Behance', 'lightweight-social-icons-reloaded' ) ),
-		'bitbucket'     => array( 'id' => 'bitbucket', 'name' => __( 'BitBucket', 'lightweight-social-icons-reloaded' ) ),
-		'bluesky'       => array( 'id' => 'bluesky', 'name' => __( 'Bluesky', 'lightweight-social-icons-reloaded' ) ),
-		'buymeacoffee'  => array( 'id' => 'buymeacoffee', 'name' => __( 'Buy Me a Coffee', 'lightweight-social-icons-reloaded' ) ),
-		'codeberg'      => array( 'id' => 'codeberg', 'name' => __( 'Codeberg', 'lightweight-social-icons-reloaded' ) ),
-		'codepen'       => array( 'id' => 'codepen', 'name' => __( 'Codepen', 'lightweight-social-icons-reloaded' ) ),
-		'email'         => array( 'id' => 'email', 'name' => __( 'Contact', 'lightweight-social-icons-reloaded' ) ),
-		'deviantart'    => array( 'id' => 'deviantart', 'name' => __( 'DeviantArt', 'lightweight-social-icons-reloaded' ) ),
-		'discord'       => array( 'id' => 'discord', 'name' => __( 'Discord', 'lightweight-social-icons-reloaded' ) ),
-		'dribbble'      => array( 'id' => 'dribbble', 'name' => __( 'Dribbble', 'lightweight-social-icons-reloaded' ) ),
-		'dropbox'       => array( 'id' => 'dropbox', 'name' => __( 'Dropbox', 'lightweight-social-icons-reloaded' ) ),
-		'facebook'      => array( 'id' => 'facebook', 'name' => __( 'Facebook', 'lightweight-social-icons-reloaded' ) ),
-		'flickr'        => array( 'id' => 'flickr', 'name' => __( 'Flickr', 'lightweight-social-icons-reloaded' ) ),
-		'github'        => array( 'id' => 'github', 'name' => __( 'GitHub', 'lightweight-social-icons-reloaded' ) ),
-		'gitlab'        => array( 'id' => 'gitlab', 'name' => __( 'GitLab', 'lightweight-social-icons-reloaded' ) ),
-		'goodreads'     => array( 'id' => 'goodreads', 'name' => __( 'Goodreads', 'lightweight-social-icons-reloaded' ) ),
-		'houzz'         => array( 'id' => 'houzz', 'name' => __( 'Houzz', 'lightweight-social-icons-reloaded' ) ),
-		'instagram'     => array( 'id' => 'instagram', 'name' => __( 'Instagram', 'lightweight-social-icons-reloaded' ) ),
-		'jsfiddle'      => array( 'id' => 'jsfiddle', 'name' => __( 'JSFiddle', 'lightweight-social-icons-reloaded' ) ),
-		'kick'          => array( 'id' => 'kick', 'name' => __( 'Kick', 'lightweight-social-icons-reloaded' ) ),
-		'kofi'          => array( 'id' => 'kofi', 'name' => __( 'Ko-fi', 'lightweight-social-icons-reloaded' ) ),
-		'lastfm'        => array( 'id' => 'lastfm', 'name' => __( 'Last.fm', 'lightweight-social-icons-reloaded' ) ),
-		'lemmy'         => array( 'id' => 'lemmy', 'name' => __( 'Lemmy', 'lightweight-social-icons-reloaded' ) ),
-		'letterboxd'    => array( 'id' => 'letterboxd', 'name' => __( 'Letterboxd', 'lightweight-social-icons-reloaded' ) ),
-		'linkedin'      => array( 'id' => 'linkedin', 'name' => __( 'LinkedIn', 'lightweight-social-icons-reloaded' ) ),
-		'mastodon'      => array( 'id' => 'mastodon', 'name' => __( 'Mastodon', 'lightweight-social-icons-reloaded' ) ),
-		'medium'        => array( 'id' => 'medium', 'name' => __( 'Medium', 'lightweight-social-icons-reloaded' ) ),
-		'mixcloud'      => array( 'id' => 'mixcloud', 'name' => __( 'Mixcloud', 'lightweight-social-icons-reloaded' ) ),
-		'paper-plane'   => array( 'id' => 'paper-plane', 'name' => __( 'Newsletter', 'lightweight-social-icons-reloaded' ) ),
-		'patreon'       => array( 'id' => 'patreon', 'name' => __( 'Patreon', 'lightweight-social-icons-reloaded' ) ),
-		'peertube'      => array( 'id' => 'peertube', 'name' => __( 'PeerTube', 'lightweight-social-icons-reloaded' ) ),
-		'phone'         => array( 'id' => 'phone', 'name' => __( 'Phone', 'lightweight-social-icons-reloaded' ) ),
-		'pinterest'     => array( 'id' => 'pinterest', 'name' => __( 'Pinterest', 'lightweight-social-icons-reloaded' ) ),
-		'pixelfed'      => array( 'id' => 'pixelfed', 'name' => __( 'Pixelfed', 'lightweight-social-icons-reloaded' ) ),
-		'reddit'        => array( 'id' => 'reddit', 'name' => __( 'Reddit', 'lightweight-social-icons-reloaded' ) ),
-		'rss'           => array( 'id' => 'rss', 'name' => __( 'RSS', 'lightweight-social-icons-reloaded' ) ),
-		'signal'        => array( 'id' => 'signal', 'name' => __( 'Signal', 'lightweight-social-icons-reloaded' ) ),
-		'snapchat'      => array( 'id' => 'snapchat', 'name' => __( 'Snapchat', 'lightweight-social-icons-reloaded' ) ),
-		'soundcloud'    => array( 'id' => 'soundcloud', 'name' => __( 'SoundCloud', 'lightweight-social-icons-reloaded' ) ),
-		'spotify'       => array( 'id' => 'spotify', 'name' => __( 'Spotify', 'lightweight-social-icons-reloaded' ) ),
-		'stackoverflow' => array( 'id' => 'stackoverflow', 'name' => __( 'Stack Overflow', 'lightweight-social-icons-reloaded' ) ),
-		'steam'         => array( 'id' => 'steam', 'name' => __( 'Steam', 'lightweight-social-icons-reloaded' ) ),
-		'strava'        => array( 'id' => 'strava', 'name' => __( 'Strava', 'lightweight-social-icons-reloaded' ) ),
-		'substack'      => array( 'id' => 'substack', 'name' => __( 'Substack', 'lightweight-social-icons-reloaded' ) ),
-		'swarm'         => array( 'id' => 'swarm', 'name' => __( 'Swarm', 'lightweight-social-icons-reloaded' ) ),
-		'telegram'      => array( 'id' => 'telegram', 'name' => __( 'Telegram', 'lightweight-social-icons-reloaded' ) ),
-		'threads'       => array( 'id' => 'threads', 'name' => __( 'Threads', 'lightweight-social-icons-reloaded' ) ),
-		'tiktok'        => array( 'id' => 'tiktok', 'name' => __( 'TikTok', 'lightweight-social-icons-reloaded' ) ),
-		'tripadvisor'   => array( 'id' => 'tripadvisor', 'name' => __( 'Tripadvisor', 'lightweight-social-icons-reloaded' ) ),
-		'tumblr'        => array( 'id' => 'tumblr', 'name' => __( 'Tumblr', 'lightweight-social-icons-reloaded' ) ),
-		'twitch'        => array( 'id' => 'twitch', 'name' => __( 'Twitch', 'lightweight-social-icons-reloaded' ) ),
-		'vimeo'         => array( 'id' => 'vimeo', 'name' => __( 'Vimeo', 'lightweight-social-icons-reloaded' ) ),
-		'vkontakte'     => array( 'id' => 'vkontakte', 'name' => __( 'VK', 'lightweight-social-icons-reloaded' ) ),
-		'wellfound'     => array( 'id' => 'wellfound', 'name' => __( 'Wellfound (AngelList)', 'lightweight-social-icons-reloaded' ) ),
-		'whatsapp'      => array( 'id' => 'whatsapp', 'name' => __( 'WhatsApp', 'lightweight-social-icons-reloaded' ) ),
-		'wordpress'     => array( 'id' => 'wordpress', 'name' => __( 'WordPress', 'lightweight-social-icons-reloaded' ) ),
-		'x'             => array( 'id' => 'x', 'name' => __( 'X (Twitter)', 'lightweight-social-icons-reloaded' ) ),
-		'xing'          => array( 'id' => 'xing', 'name' => __( 'Xing', 'lightweight-social-icons-reloaded' ) ),
-		'yelp'          => array( 'id' => 'yelp', 'name' => __( 'Yelp', 'lightweight-social-icons-reloaded' ) ),
-		'youtube'       => array( 'id' => 'youtube', 'name' => __( 'YouTube', 'lightweight-social-icons-reloaded' ) ),
+		'fivehundredpx' => array( 'id' => 'fivehundredpx', 'name' => __( '500px', 'reloaded-social-icons' ) ),
+		'amazon'        => array( 'id' => 'amazon', 'name' => __( 'Amazon', 'reloaded-social-icons' ) ),
+		'applemusic'    => array( 'id' => 'applemusic', 'name' => __( 'Apple Music', 'reloaded-social-icons' ) ),
+		'applepodcasts' => array( 'id' => 'applepodcasts', 'name' => __( 'Apple Podcasts', 'reloaded-social-icons' ) ),
+		'bandcamp'      => array( 'id' => 'bandcamp', 'name' => __( 'Bandcamp', 'reloaded-social-icons' ) ),
+		'behance'       => array( 'id' => 'behance', 'name' => __( 'Behance', 'reloaded-social-icons' ) ),
+		'bitbucket'     => array( 'id' => 'bitbucket', 'name' => __( 'BitBucket', 'reloaded-social-icons' ) ),
+		'bluesky'       => array( 'id' => 'bluesky', 'name' => __( 'Bluesky', 'reloaded-social-icons' ) ),
+		'buymeacoffee'  => array( 'id' => 'buymeacoffee', 'name' => __( 'Buy Me a Coffee', 'reloaded-social-icons' ) ),
+		'codeberg'      => array( 'id' => 'codeberg', 'name' => __( 'Codeberg', 'reloaded-social-icons' ) ),
+		'codepen'       => array( 'id' => 'codepen', 'name' => __( 'Codepen', 'reloaded-social-icons' ) ),
+		'email'         => array( 'id' => 'email', 'name' => __( 'Contact', 'reloaded-social-icons' ) ),
+		'deviantart'    => array( 'id' => 'deviantart', 'name' => __( 'DeviantArt', 'reloaded-social-icons' ) ),
+		'discord'       => array( 'id' => 'discord', 'name' => __( 'Discord', 'reloaded-social-icons' ) ),
+		'dribbble'      => array( 'id' => 'dribbble', 'name' => __( 'Dribbble', 'reloaded-social-icons' ) ),
+		'dropbox'       => array( 'id' => 'dropbox', 'name' => __( 'Dropbox', 'reloaded-social-icons' ) ),
+		'facebook'      => array( 'id' => 'facebook', 'name' => __( 'Facebook', 'reloaded-social-icons' ) ),
+		'flickr'        => array( 'id' => 'flickr', 'name' => __( 'Flickr', 'reloaded-social-icons' ) ),
+		'github'        => array( 'id' => 'github', 'name' => __( 'GitHub', 'reloaded-social-icons' ) ),
+		'gitlab'        => array( 'id' => 'gitlab', 'name' => __( 'GitLab', 'reloaded-social-icons' ) ),
+		'goodreads'     => array( 'id' => 'goodreads', 'name' => __( 'Goodreads', 'reloaded-social-icons' ) ),
+		'houzz'         => array( 'id' => 'houzz', 'name' => __( 'Houzz', 'reloaded-social-icons' ) ),
+		'instagram'     => array( 'id' => 'instagram', 'name' => __( 'Instagram', 'reloaded-social-icons' ) ),
+		'jsfiddle'      => array( 'id' => 'jsfiddle', 'name' => __( 'JSFiddle', 'reloaded-social-icons' ) ),
+		'kick'          => array( 'id' => 'kick', 'name' => __( 'Kick', 'reloaded-social-icons' ) ),
+		'kofi'          => array( 'id' => 'kofi', 'name' => __( 'Ko-fi', 'reloaded-social-icons' ) ),
+		'lastfm'        => array( 'id' => 'lastfm', 'name' => __( 'Last.fm', 'reloaded-social-icons' ) ),
+		'lemmy'         => array( 'id' => 'lemmy', 'name' => __( 'Lemmy', 'reloaded-social-icons' ) ),
+		'letterboxd'    => array( 'id' => 'letterboxd', 'name' => __( 'Letterboxd', 'reloaded-social-icons' ) ),
+		'linkedin'      => array( 'id' => 'linkedin', 'name' => __( 'LinkedIn', 'reloaded-social-icons' ) ),
+		'mastodon'      => array( 'id' => 'mastodon', 'name' => __( 'Mastodon', 'reloaded-social-icons' ) ),
+		'medium'        => array( 'id' => 'medium', 'name' => __( 'Medium', 'reloaded-social-icons' ) ),
+		'mixcloud'      => array( 'id' => 'mixcloud', 'name' => __( 'Mixcloud', 'reloaded-social-icons' ) ),
+		'paper-plane'   => array( 'id' => 'paper-plane', 'name' => __( 'Newsletter', 'reloaded-social-icons' ) ),
+		'patreon'       => array( 'id' => 'patreon', 'name' => __( 'Patreon', 'reloaded-social-icons' ) ),
+		'peertube'      => array( 'id' => 'peertube', 'name' => __( 'PeerTube', 'reloaded-social-icons' ) ),
+		'phone'         => array( 'id' => 'phone', 'name' => __( 'Phone', 'reloaded-social-icons' ) ),
+		'pinterest'     => array( 'id' => 'pinterest', 'name' => __( 'Pinterest', 'reloaded-social-icons' ) ),
+		'pixelfed'      => array( 'id' => 'pixelfed', 'name' => __( 'Pixelfed', 'reloaded-social-icons' ) ),
+		'reddit'        => array( 'id' => 'reddit', 'name' => __( 'Reddit', 'reloaded-social-icons' ) ),
+		'rss'           => array( 'id' => 'rss', 'name' => __( 'RSS', 'reloaded-social-icons' ) ),
+		'signal'        => array( 'id' => 'signal', 'name' => __( 'Signal', 'reloaded-social-icons' ) ),
+		'snapchat'      => array( 'id' => 'snapchat', 'name' => __( 'Snapchat', 'reloaded-social-icons' ) ),
+		'soundcloud'    => array( 'id' => 'soundcloud', 'name' => __( 'SoundCloud', 'reloaded-social-icons' ) ),
+		'spotify'       => array( 'id' => 'spotify', 'name' => __( 'Spotify', 'reloaded-social-icons' ) ),
+		'stackoverflow' => array( 'id' => 'stackoverflow', 'name' => __( 'Stack Overflow', 'reloaded-social-icons' ) ),
+		'steam'         => array( 'id' => 'steam', 'name' => __( 'Steam', 'reloaded-social-icons' ) ),
+		'strava'        => array( 'id' => 'strava', 'name' => __( 'Strava', 'reloaded-social-icons' ) ),
+		'substack'      => array( 'id' => 'substack', 'name' => __( 'Substack', 'reloaded-social-icons' ) ),
+		'swarm'         => array( 'id' => 'swarm', 'name' => __( 'Swarm', 'reloaded-social-icons' ) ),
+		'telegram'      => array( 'id' => 'telegram', 'name' => __( 'Telegram', 'reloaded-social-icons' ) ),
+		'threads'       => array( 'id' => 'threads', 'name' => __( 'Threads', 'reloaded-social-icons' ) ),
+		'tiktok'        => array( 'id' => 'tiktok', 'name' => __( 'TikTok', 'reloaded-social-icons' ) ),
+		'tripadvisor'   => array( 'id' => 'tripadvisor', 'name' => __( 'Tripadvisor', 'reloaded-social-icons' ) ),
+		'tumblr'        => array( 'id' => 'tumblr', 'name' => __( 'Tumblr', 'reloaded-social-icons' ) ),
+		'twitch'        => array( 'id' => 'twitch', 'name' => __( 'Twitch', 'reloaded-social-icons' ) ),
+		'vimeo'         => array( 'id' => 'vimeo', 'name' => __( 'Vimeo', 'reloaded-social-icons' ) ),
+		'vkontakte'     => array( 'id' => 'vkontakte', 'name' => __( 'VK', 'reloaded-social-icons' ) ),
+		'wellfound'     => array( 'id' => 'wellfound', 'name' => __( 'Wellfound (AngelList)', 'reloaded-social-icons' ) ),
+		'whatsapp'      => array( 'id' => 'whatsapp', 'name' => __( 'WhatsApp', 'reloaded-social-icons' ) ),
+		'wordpress'     => array( 'id' => 'wordpress', 'name' => __( 'WordPress', 'reloaded-social-icons' ) ),
+		'x'             => array( 'id' => 'x', 'name' => __( 'X (Twitter)', 'reloaded-social-icons' ) ),
+		'xing'          => array( 'id' => 'xing', 'name' => __( 'Xing', 'reloaded-social-icons' ) ),
+		'yelp'          => array( 'id' => 'yelp', 'name' => __( 'Yelp', 'reloaded-social-icons' ) ),
+		'youtube'       => array( 'id' => 'youtube', 'name' => __( 'YouTube', 'reloaded-social-icons' ) ),
 	);
 
 	return apply_filters( 'lsir_icons_defaults', $options );
@@ -789,9 +789,9 @@ function lsir_plugin_row_meta( $links, $file ) {
 		return $links;
 	}
 	if ( false === strpos( implode( ' ', (array) $links ), 'https://github.com/gioxx/wp-lsi-reloaded' ) ) {
-		$links[] = '<a href="https://github.com/gioxx/wp-lsi-reloaded" target="_blank" rel="noopener noreferrer">' . esc_html__( 'View on GitHub', 'lightweight-social-icons-reloaded' ) . '</a>';
+		$links[] = '<a href="https://github.com/gioxx/wp-lsi-reloaded" target="_blank" rel="noopener noreferrer">' . esc_html__( 'View on GitHub', 'reloaded-social-icons' ) . '</a>';
 	}
-	$links[] = '<a href="https://wordpress.gxware.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins by Gioxx', 'lightweight-social-icons-reloaded' ) . '</a>';
+	$links[] = '<a href="https://wordpress.gxware.org/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'More plugins by Gioxx', 'reloaded-social-icons' ) . '</a>';
 
 	return $links;
 }
